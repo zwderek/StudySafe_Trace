@@ -7,14 +7,23 @@ class ContactView(TemplateView):
     template_name = "contacts.html"
 
     def get_context_data(self, **kwargs):
+        uid = self.kwargs['id']
+        date = self.kwargs['date']
         context = super().get_context_data(**kwargs)
+        context['subject'] = 'Student UID: ' + uid
+        context['date'] = date
         context['contacts'] = 'test'
+
         return context
 
 class VenueView(TemplateView):
     template_name = "venues.html"
 
     def get_context_data(self, **kwargs):
+        uid = self.kwargs['id']
+        date = self.kwargs['date']
         context = super().get_context_data(**kwargs)
+        context['subject'] = 'Student UID: ' + uid
+        context['date'] = date
         context['venues'] = 'test'
         return context
