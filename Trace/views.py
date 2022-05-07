@@ -12,7 +12,7 @@ class ContactView(TemplateView):
         uid = self.kwargs['id']
         date = self.kwargs['date']
         context = super().get_context_data(**kwargs)
-        context['subject'] = 'Student UID: ' + uid
+        context['subject'] = 'HKU ID: ' + uid
         context['date'] = date
 
         tmp = requests.get('https://intense-brushlands-34756.herokuapp.com/core/api/close-contacts/' + uid +'/' + date +'/')
@@ -32,7 +32,7 @@ class VenueView(TemplateView):
         uid = self.kwargs['id']
         date = self.kwargs['date']
         context = super().get_context_data(**kwargs)
-        context['subject'] = 'Student UID: ' + uid
+        context['subject'] = 'HKU ID: ' + uid
         context['date'] = date
         tmp = requests.get('https://intense-brushlands-34756.herokuapp.com/core/api/venues-visited-by/' + uid +'/' + date +'/')
 
